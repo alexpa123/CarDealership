@@ -1,0 +1,121 @@
+﻿@model CarDealershipNew.Models.QueryObjects.PurchaseViewModel
+@{
+    ViewBag.Title = "Purchase";
+}
+
+<h2>Purchase</h2>
+
+<div class="vehicleRow">
+    <div class="row">
+        <div class="col-sm-3">
+            <p>@Model.Car.Year @Model.Car.Make @Model.Car.Model</p>
+            <img class="card-img-bottom" src="/Images/car.jpg" alt="Card image cap" />
+            <p></p>
+        </div>
+        <div class="col-sm-3">
+            <p>Body Style: @Model.Car.BodyStyle</p>
+            <p>Transmission: @Model.Car.Transmission</p>
+            <p>Color: @Model.Car.ExteriorColor</p>
+        </div>
+        <div class="col-sm-3">
+            <p>Interior: @Model.Car.InteriorColor</p>
+            <p>Mileage: @Model.Car.Mileage</p>
+            <p>VIN: @Model.Car.VIN</p>
+        </div>
+        <div class="col-sm-3">
+            <p>Sale Price: @Model.Car.Price</p>
+            <p>MSRP: @Model.Car.MSRP</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-3">
+                </div>
+                <div class="col-sm-9">
+                    <p>Description: @Model.Car.Description</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    @Html.ValidationSummary(false)
+</div>
+using (@Html.BeginForm("Purchase", "Sales", FormMethod.Post)){
+<div class="form-row">
+    <div class="form-group col-md-4">
+        <label for="inputEmail4">Name</label>
+        @Html.HiddenFor(p => p.Car.CarId)
+        @Html.TextBoxFor(p => p.Name, new { @class = "form-control", type = "text" })
+    </div>
+    <div class="form-group col-md-8">
+        <label for="inputPassword4">Phone</label>
+        @Html.TextBoxFor(p => p.Phone, new { @class = "form-control", type = "text" })
+    </div>
+</div>
+<div class="form-group">
+    <label for="inputAddress">Email</label>
+    @Html.TextBoxFor(p => p.Email, new { @class = "form-control", type = "text" })
+</div>
+<div class="form-row">
+    <div class="form-group col-md-4">
+        <label for="inputEmail4">Street1</label>
+        @Html.TextBoxFor(p => p.Street1, new { @class = "form-control", type = "text" })
+    </div>
+    <div class="form-group col-md-8">
+        <label for="inputPassword4">Street2</label>
+        @Html.TextBoxFor(p => p.Street2, new { @class = "form-control", type = "text" })
+    </div>
+</div>
+<div class="form-row">
+    <div class="form-group col-md-4">
+        <label for="inputEmail4">City</label>
+        @Html.TextBoxFor(p => p.City, new { @class = "form-control", type = "text" })
+    </div>
+    <div class="form-group col-md-8">
+        <label for="inputPassword4">State</label>
+        <div class="input-group mb-3">
+            @Html.DropDownListFor(p => p.State, new SelectList(
+                new List<Object>
+                {
+                   new { value = 0 , text = "Kentucky"  },
+                   new { value = 1 , text = "Indiana" },
+                   new { value = 2 , text = "Kentucky"}
+                },
+                "value",
+                "text",
+                Model.State
+           ))
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <label for="inputAddress">Zipcode</label>
+    @Html.TextBoxFor(p => p.Zipcode, new { @class = "form-control", type = "text" })
+</div>
+<hr />
+<div class="form-row">
+    <div class="form-group col-md-4">
+        <label for="inputEmail4">Purchase Price</label>
+        @Html.TextBoxFor(p => p.PurchasePrice, new { @class = "form-control", type = "number" })
+    </div>
+    <div class="form-group col-md-8">
+        <label for="inputPassword4">Purchase Type</label>
+        <div class="input-group mb-3">
+            @Html.DropDownListFor(p => p.PurchaseType, new SelectList(
+           new List<Object>
+           {
+              new { value = 0 , text = "Dealer Finance"  },
+              new { value = 1 , text = "Cash" },
+              new { value = 2 , text = "Bank Finance"}
+           },
+           "value",
+           "text",
+           Model.PurchaseType
+      ))
+        </div>
+    </div>
+</div>
+<button type="submit" class="btn btn-primary">Save</button>
+}

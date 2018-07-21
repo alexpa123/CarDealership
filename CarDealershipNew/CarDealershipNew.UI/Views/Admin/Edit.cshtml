@@ -1,0 +1,104 @@
+﻿@model CarDealershipNew.Models.Models.CarViewModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Car</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Car.CarId)
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                @Html.LabelFor(model => model.Car.Make, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.Car.Make, Model.Makes, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-8">
+                @Html.LabelFor(model => model.Car.Model, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.Car.Model, Model.Models, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                @Html.LabelFor(model => model.Car.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.Car.Type, Model.Types, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-8">
+                @Html.LabelFor(model => model.Car.BodyStyle, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.Car.BodyStyle, Model.BodyStyles, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                @Html.LabelFor(model => model.Car.Year, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.Car.Year, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="form-group col-md-8">
+                @Html.LabelFor(model => model.Car.Transmission, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.Car.Transmission, Model.Transmissions, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                @Html.LabelFor(model => model.Car.ExteriorColor, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.Car.ExteriorColor, Model.ExteriorColors, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-8">
+                @Html.LabelFor(model => model.Car.InteriorColor, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.Car.InteriorColor, Model.InteriorColors, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                @Html.LabelFor(model => model.Car.Mileage, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.Car.Mileage, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="form-group col-md-8">
+                @Html.LabelFor(model => model.Car.VIN, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.Car.VIN, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                @Html.LabelFor(model => model.Car.MSRP, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.Car.MSRP, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="form-group col-md-8">
+                @Html.LabelFor(model => model.Car.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.Car.Price, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.Car.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.Car.Description, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Car.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.Car.Image, new { htmlAttributes = new { @class = "form-control" } })
+            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+        </div>
+        <div class="form-check">
+            @Html.LabelFor(model => model.Car.Featured, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.CheckBoxFor(model => model.Car.Featured, htmlAttributes: new { @class = "control-label col-md-2" })
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

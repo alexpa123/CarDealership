@@ -1,0 +1,51 @@
+﻿.container {
+    height: 100%;
+}
+
+/*Navbar***********************************/
+.nav-item {
+    font-weight: bold;
+}
+
+/*Displaying new and used vehicles*********/
+.vehicleRow {
+    border-style: solid;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+/*Quick search************************/
+
+.centerDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.buttonWidth {
+    width: 100%;
+}
+
+.quickSearch {
+    border-style: solid;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+/*Specials*****************************/
+
+.specials {
+    border-style: solid;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+/***************/
+

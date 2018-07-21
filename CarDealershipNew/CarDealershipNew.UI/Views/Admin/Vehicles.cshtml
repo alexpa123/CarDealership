@@ -1,0 +1,92 @@
+﻿@model CarDealershipNew.Models.QueryObjects.VehicleSearch
+
+@{
+    ViewBag.Title = "Vehicles";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h2>Vehicles</h2>
+
+<div class="container quickSearch">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-4">
+                    <p>Quick Search</p>
+                    <input type="text" id="adminMakeModelOrYearInput" class="form-control" placeholder="Enter make, model, or year" aria-label="Enter make, model, or year" aria-describedby="basic-addon2">
+                </div>
+                <div class="col-sm-4">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <p>Price</p>
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="input-group mb-3">
+                                        <select class="custom-select" id="adminMinPrice">
+                                            <option selected>No Min</option>
+                                            <option value="5000">5000</option>
+                                            <option value="10000">10000</option>
+                                            <option value="15000">15000</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="input-group mb-3">
+                                        <select class="custom-select" id="adminMaxPrice">
+                                            <option selected>No Max</option>
+                                            <option value="15000">15000</option>
+                                            <option value="20000">20000</option>
+                                            <option value="30000">30000</option>
+                                            <option value="40000">40000</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 centerDiv">
+                                    <button type="button" id="adminVehicleSearch" onclick="adminVehicleSearch()" ; class="btn btn-secondary buttonWidth">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <p>Year</p>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="input-group mb-3">
+                                <select class="custom-select" id="adminMinYear">
+                                    <option selected>No Min</option>
+                                    <option value="2000">2000</option>
+                                    <option value="2005">2005</option>
+                                    <option value="2010">2010</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="input-group mb-3">
+                                <select class="custom-select" id="adminMaxYear">
+                                    <option selected>No Max</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2018">2018</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h2>Search Results</h2>
+
+<div>
+    <p id="adminSearchResults" class="detailsResult"></p>
+</div>

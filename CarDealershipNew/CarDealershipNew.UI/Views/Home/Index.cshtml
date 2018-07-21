@@ -1,0 +1,29 @@
+﻿@model List<CarDealershipNew.Models.Models.Car>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Featured Vehicles</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+                @foreach (var vehicle in Model)
+                {
+                    <div class="col-sm-3" style="width: 18rem;">
+                        <img src="~/Images/car.jpg" class="card-img-top" alt="Card image cap" />
+                        <div class="card-body">
+                            <p class="card-text"> Year: @vehicle.Year Make: @vehicle.Make Model: @vehicle.Model</p>
+                            <p class="card-text">$@vehicle.Price</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
