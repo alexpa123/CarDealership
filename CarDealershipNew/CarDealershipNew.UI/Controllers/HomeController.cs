@@ -80,5 +80,12 @@ namespace CarDealershipNew.UI.Controllers
 
             return View(contact);
         }
+
+        [HttpGet]
+        public ActionResult Calculate(int? id)
+        {
+            Loan loan = new Loan();
+            return View(loan);
+        }
     }
 }

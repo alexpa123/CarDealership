@@ -27,6 +27,36 @@ $(document).ready(function () {
 });
 ///////////////////////////////////
 
+document.getElementById('calculateLoan').addEventListener('click', calculateLoan)
+
+function calculateLoan(e) {
+    console.log("calculating");
+
+    var amount = document.getElementById('loanAmount');
+    var interest = document.getElementById('interest');
+    var years = document.getElementById('term');
+    var monthlyPayment = document.getElementById('monthlyPayment');
+    var totalPayment = document.getElementById('totalPayment');
+    var totalInterest = document.getElementById('totalInterest');
+
+    var principal = parseFloat(amount.value);
+    var calculatedInterest = parseFloat(interest.value) / 100 / 12;
+    var calculatedPayments = parseFloat(years.value) * 12;
+
+    var x = Math.pow(1 + calculatedInterest, calculatedPayments);
+    var monthly = (principal * x * calculatedInterest) / (x - 1);
+
+    if (isFinite(monthly)) {
+        monthlyPayment.value = monthly.toFixed(2);
+        totalPayment.value = (monthly * calculatedPayments).toFixed(2);
+        totalInterest.value = ((monthly * calculatedPayments) - principal).toFixed(2);
+    } else {
+        console.log('check your information');
+    }
+
+}
+
+////////////////////////////////////
 
 
 function salesVehicleSearch() {

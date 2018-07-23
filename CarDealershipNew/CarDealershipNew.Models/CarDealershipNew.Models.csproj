@@ -124,6 +124,7 @@
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\ExteriorColorModel.cs" />
     <Compile Include="Models\InteriorColorModel.cs" />
+    <Compile Include="Models\Loan.cs" />
     <Compile Include="Models\MakeModel.cs" />
     <Compile Include="Models\ModelModel.cs" />
     <Compile Include="Models\Roles.cs" />
