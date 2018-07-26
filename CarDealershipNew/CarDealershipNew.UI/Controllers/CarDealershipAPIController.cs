@@ -64,14 +64,15 @@ namespace CarDealershipNew.UI.Controllers
             return Ok(salesInventory);
         }
 
-        [Route("API/GetDetails/{carId}")]
-        [AcceptVerbs("GET")]
-        public IHttpActionResult GetDetails(int carId)
-        {
-            ICarDealerRepository _repo = RepositoryFactory.Create();
-
-            Car car = _repo.GetCarById(carId);
-            return Ok(car);
-        }
+        //[Route("API/GetDetails/{carId}")]
+        //[AcceptVerbs("GET")]
+        //public IHttpActionResult GetDetails(int carId)
+        //{
+        //    ICarDealerRepository _repo = RepositoryFactory.Create();
+        //    LoanCarViewModel model = new LoanCarViewModel();
+        //    model.Car = new Car();
+        //    model.Car = _repo.GetCarById(carId);
+        //    return Ok(model);
+        //}
     }
 }

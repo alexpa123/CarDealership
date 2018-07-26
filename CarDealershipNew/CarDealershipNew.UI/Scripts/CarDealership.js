@@ -184,7 +184,7 @@ function vehicleSearch(Type) {
                                 <div class="col-sm-3">
                                     <p>Sale Price: ${price}</p>
                                     <p>MSRP: ${msrp}</p>
-                                    <button type="button" class="btn btn-secondary" onclick="getDetails(${carId})">Details</button>
+                                    <a href="http://localhost:54459/Home/GetDetails?id=${carId}"><button type="button" class="btn btn-secondary">Details</button></a>
                                 </div>
                             </div>`;
                     $('.detailsResult').append(row);
@@ -344,77 +344,76 @@ function adminVehicleSearch() {
 }
 
 //////////////////////
-function getDetails(carId) {
-    $.ajax({
-        type: 'GET',
-        url: `http://localhost:54459/API/GetDetails/${carId}`,
-        success: function (vehicle, status) {
-            $('.detailsResult').empty();
-            console.log("shit");
-            console.log(vehicle.Image);
-            var carId = vehicle.CarId;
-            var year = vehicle.Year;
-            var make = vehicle.Make;
-            var model = vehicle.Model;
-            var image = vehicle.Image;
-            var bodyStyle = vehicle.BodyStyle;
-            var transmission = vehicle.Transmission;
-            var exteriorColor = vehicle.ExteriorColor;
-            var interiorColor = vehicle.InteriorColor;
-            var mileage = vehicle.Mileage;
-            var vin = vehicle.VIN;
-            var price = vehicle.Price;
-            var msrp = vehicle.MSRP;
-            var description = vehicle.Description;
+//function getDetails(carId) {
+//    $.ajax({
+//        type: 'GET',
+//        url: `http://localhost:54459/Home/GetDetails/${carId}`,
+//        success: function (vehicle, status) {
+//            $('.detailsResult').empty();
+//            console.log(vehicle.Image);
+//            var carId = vehicle.CarId;
+//            var year = vehicle.Year;
+//            var make = vehicle.Make;
+//            var model = vehicle.Model;
+//            var image = vehicle.Image;
+//            var bodyStyle = vehicle.BodyStyle;
+//            var transmission = vehicle.Transmission;
+//            var exteriorColor = vehicle.ExteriorColor;
+//            var interiorColor = vehicle.InteriorColor;
+//            var mileage = vehicle.Mileage;
+//            var vin = vehicle.VIN;
+//            var price = vehicle.Price;
+//            var msrp = vehicle.MSRP;
+//            var description = vehicle.Description;
 
-            var row = `<div class="vehicleRow">
-                    <div class="row">
-                                <div class="col-sm-3">
-                                    <p>${year} ${make} ${model}</p>
-                                    <img class="card-img-bottom" src="/Images/car.jpg" alt="Card image cap"/>
-                                    <p></p>
-                                </div>
-                                <div class="col-sm-3">
-                                    <p>Body Style: ${bodyStyle}</p>
-                                    <p>Transmission: ${transmission}</p>
-                                    <p>Color: ${exteriorColor}</p>
-                                </div>
-                                <div class="col-sm-3">
-                                    <p>Interior: ${interiorColor}</p>
-                                    <p>Mileage: ${mileage}</p>
-                                    <p>VIN: ${vin}</p>
-                                </div>
-                                <div class="col-sm-3">
-                                    <p>Sale Price: ${price}</p>
-                                    <p>MSRP: ${msrp}</p>
-                                    <a class="nav-link" href="http://localhost:54459/Home/Contact/?vin=${vin}">
-                                    <button type="button" class="btn btn-secondary">Contact Us</button>
-                                    </a>   
-                                </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="row">
-                                    <div class="col-sm-3"> 
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <p>Description: ${description}</p>
-                                    </div>
-                                </div>
-                            </div>    
-                        </div>
-                </div >`;
-            $('.detailsResult').append(row);
+//            var row = `<div class="vehicleRow">
+//                    <div class="row">
+//                                <div class="col-sm-3">
+//                                    <p>${year} ${make} ${model}</p>
+//                                    <img class="card-img-bottom" src="/Images/car.jpg" alt="Card image cap"/>
+//                                    <p></p>
+//                                </div>
+//                                <div class="col-sm-3">
+//                                    <p>Body Style: ${bodyStyle}</p>
+//                                    <p>Transmission: ${transmission}</p>
+//                                    <p>Color: ${exteriorColor}</p>
+//                                </div>
+//                                <div class="col-sm-3">
+//                                    <p>Interior: ${interiorColor}</p>
+//                                    <p>Mileage: ${mileage}</p>
+//                                    <p>VIN: ${vin}</p>
+//                                </div>
+//                                <div class="col-sm-3">
+//                                    <p>Sale Price: ${price}</p>
+//                                    <p>MSRP: ${msrp}</p>
+//                                    <a class="nav-link" href="http://localhost:54459/Home/Contact/?vin=${vin}">
+//                                    <button type="button" class="btn btn-secondary">Contact Us</button>
+//                                    </a>   
+//                                </div>
+//                        </div>
+//                        <div class="row">
+//                            <div class="col-sm-12">
+//                                <div class="row">
+//                                    <div class="col-sm-3"> 
+//                                    </div>
+//                                    <div class="col-sm-9">
+//                                        <p>Description: ${description}</p>
+//                                    </div>
+//                                </div>
+//                            </div>    
+//                        </div>
+//                </div >`;
+//            $('.detailsResult').append(row);
 
-        },
-        error: function () {
-            $(".detailsResult")
-                .append($('<li>')
-                    .attr({ class: 'list-group-item list-group-item-danger' })
-                    .text("Error calling web service. Please try again later."));
-        }
-    });
-}
+//        },
+//        error: function () {
+//            $(".detailsResult")
+//                .append($('<li>')
+//                    .attr({ class: 'list-group-item list-group-item-danger' })
+//                    .text("Error calling web service. Please try again later."));
+//        }
+//    });
+//}
 
 ////////////////////////
 

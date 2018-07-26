@@ -87,5 +87,19 @@ namespace CarDealershipNew.UI.Controllers
             Loan loan = new Loan();
             return View(loan);
         }
+
+        [Route("API/GetDetails/{carId}")]
+        [AcceptVerbs("GET")]
+        public ActionResult GetDetails(int id)
+        {
+            ICarDealerRepository _repo = RepositoryFactory.Create();
+            LoanCarViewModel model = new LoanCarViewModel();
+            model.Car = new Car();
+            model.Car = _repo.GetCarById(id);
+            model.LoanAmount = model.Car.Price;
+            model.Term = 5;
+            model.Interest = 3.5m;
+            return View(model);
+        }
     }
 }

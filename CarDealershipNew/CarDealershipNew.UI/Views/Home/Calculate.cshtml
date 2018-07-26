@@ -1,75 +1,54 @@
 ﻿@model CarDealershipNew.Models.Models.Loan
-@{
-    ViewBag.Title = "Calculate";
-    var term = new List<SelectListItem>
-    {
-        new SelectListItem { Text = "1", Value = "1"},
-        new SelectListItem { Text = "2", Value = "2"},
-        new SelectListItem { Text = "3", Value = "3"},
-        new SelectListItem { Text = "4", Value = "4"},
-        new SelectListItem { Text = "5", Value = "5"},
-        new SelectListItem { Text = "6", Value = "6"},
-        new SelectListItem { Text = "7", Value = "7"}
+ @{
+        ViewBag.Title = "Calculate";
+        var term = new List<SelectListItem>
+{
+    new SelectListItem { Text = "1", Value = "1"},
+    new SelectListItem { Text = "2", Value = "2"},
+    new SelectListItem { Text = "3", Value = "3"},
+    new SelectListItem { Text = "4", Value = "4"},
+    new SelectListItem { Text = "5", Value = "5"},
+    new SelectListItem { Text = "6", Value = "6"},
+    new SelectListItem { Text = "7", Value = "7"}
 
-    };
-}
+};
+    }
 
-<h2>Calculate Payment</h2>
+    <h2>Calculate Payment</h2>
 
-@*@Html.BeginForm(){*@
-<div class="form-group row">
-    <div class="col-sm-1"><p>Loan Amount</p></div>
-    <div class="col-sm-5">
-        @Html.EditorFor(model => model.LoanAmount, new { htmlAttributes = new { @class = "form-control", @id = "loanAmount" } })
-    </div>
-    <div class="col-sm-2"><p>Monthly Payment : </p></div>
-    <div class="col-sm-4">
-        <input type="text" id="monthlyPayment" class="form-control" />
-    </div>
-</div>
-<div class="form-group row">
-    <div class="col-sm-1"><p>Interest %</p></div>
-    <div class="col-sm-5">
-        @Html.EditorFor(model => model.Interest, new { htmlAttributes = new { @class = "form-control", @id = "interest" } })
-    </div>
-    <div class="col-sm-2"><p>Total Payment : </p></div>
-    <div class="col-sm-4">
-        <input type="text" id="totalPayment" class="form-control" />
-    </div>
-</div>
-<div class="form-group row">
-    <div class="col-sm-1"><p>Term</p></div>
-    <div class="col-sm-5">
-        @Html.DropDownListFor(model => model.Term, term, new { @class = "form-control", @id = "term" })
-    </div>
-    <div class="col-sm-2"><p>Total Interest : </p></div>
-    <div class="col-sm-4">
-        <input type="text" id="totalInterest" class="form-control" />
-    </div>
-</div>
-<div class="form-group row">
-    <div class="col-sm-12">
-        <button type="submit" class="btn btn-primary" id="calculateLoan">Calculate Loan</button>
-    </div>
-</div>
-
-@*<div id="results">
-        <div class="form-group row">
-            <div class="col-sm-1"><p>Monthly Payment</p></div>
-            <div class="col-sm-11" id="monthlyPayment">
-
-            </div>
+    @*@Html.BeginForm(){*@
+    <div class="form-group row">
+        <div class="col-sm-1"><p>Loan Amount</p></div>
+        <div class="col-sm-5">
+            @Html.EditorFor(model => model.LoanAmount, new { htmlAttributes = new { @class = "form-control", @id = "loanAmount" } })
         </div>
-        <div class="form-group row">
-            <div class="col-sm-1"><p>Total Payment</p></div>
-            <div class="col-sm-11" id="totalPayment">
-
-            </div>
+        <div class="col-sm-2"><p>Monthly Payment : </p></div>
+        <div class="col-sm-4">
+            <input type="text" id="monthlyPayment" class="form-control" />
         </div>
-        <div class="form-group row">
-            <div class="col-sm-1"><p>Total Interest</p></div>
-            <div class="col-sm-11" id="totalInterest">
-
-            </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-1"><p>Interest %</p></div>
+        <div class="col-sm-5">
+            @Html.EditorFor(model => model.Interest, new { htmlAttributes = new { @class = "form-control", @id = "interest", value = 3.5 } })
         </div>
-    </div>*@
+        <div class="col-sm-2"><p>Total Payment : </p></div>
+        <div class="col-sm-4">
+            <input type="text" id="totalPayment" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-1"><p>Term</p></div>
+        <div class="col-sm-5">
+            @Html.DropDownListFor(model => model.Term, term, new { @class = "form-control", @id = "term", value = 5 })
+        </div>
+        <div class="col-sm-2"><p>Total Interest : </p></div>
+        <div class="col-sm-4">
+            <input type="text" id="totalInterest" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-12">
+            <button type="submit" class="btn btn-primary" id="calculateLoan">Calculate Loan</button>
+        </div>
+    </div>
