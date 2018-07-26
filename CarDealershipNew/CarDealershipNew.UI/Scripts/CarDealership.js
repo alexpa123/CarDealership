@@ -131,17 +131,16 @@ function salesVehicleSearch() {
 }
 
 
-function newVehicleSearch() {
-    $('#newVehicleSearch').click(function (event) {
+function vehicleSearch(Type) {
         $.ajax({
             type: 'POST',
-            url: 'http://localhost:54459/API/New',
+            url: `http://localhost:54459/API/${Type}`,
             data: JSON.stringify({
-                stringMakeModelOrYear: $('#newMakeModelOrYearInput').val(),
-                minPrice: $('#newMinPrice').val(),
-                maxPrice: $('#newMaxPrice').val(),
-                minYear: $('#newMinYear').val(),
-                maxYear: $('#newMaxYear').val()
+                stringMakeModelOrYear: $('.makeModelOrYearInput').val(),
+                minPrice: $('.minPrice').val(),
+                maxPrice: $('.maxPrice').val(),
+                minYear: $('.minYear').val(),
+                maxYear: $('.maxYear').val()
             }),
             headers: {
                 'Accept': 'application/json',
@@ -149,7 +148,7 @@ function newVehicleSearch() {
             },
             'dataType': 'json',
             success: function (data) {
-                $('#newSearchResults').empty();
+                $('.detailsResult').empty();
                 $.each(data, function (key, vehicle) {
                     console.log(key, vehicle);
                     console.log(vehicle.Image);
@@ -188,16 +187,15 @@ function newVehicleSearch() {
                                     <button type="button" class="btn btn-secondary" onclick="getDetails(${carId})">Details</button>
                                 </div>
                             </div>`;
-                    $('#newSearchResults').append(row);
+                    $('.detailsResult').append(row);
                 });
             },
             error: function () {
-                $("#newSearchResults")
+                $(".detailsResult")
                     .append($('<li>')
                         .attr({ class: 'list-group-item list-group-item-danger' })
                         .text("Error calling web service. Please try again later."));
             }
-        });
     });
 
 }
@@ -389,7 +387,7 @@ function getDetails(carId) {
                                 <div class="col-sm-3">
                                     <p>Sale Price: ${price}</p>
                                     <p>MSRP: ${msrp}</p>
-                                    <a class="nav-link" href="http://localhost:54459/Home/Contact/${vin}">
+                                    <a class="nav-link" href="http://localhost:54459/Home/Contact/?vin=${vin}">
                                     <button type="button" class="btn btn-secondary">Contact Us</button>
                                     </a>   
                                 </div>

@@ -56,7 +56,7 @@ namespace CarDealershipNew.UI.Controllers
             }
             else
             {
-                contact.Message = VIN;
+                contact.Message = "I would like more information on VIN #" + VIN;
             }
             ViewBag.Message = "";
             return View(contact);

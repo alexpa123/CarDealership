@@ -22,7 +22,11 @@
     justify-content: center;
 }
 
-.buttonWidth {
+.buffer{
+    height: 20%;
+}
+
+.searchButton {
     width: 100%;
 }
 
